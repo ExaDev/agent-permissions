@@ -352,7 +352,7 @@
       "kind": "function",
       "module": "remote",
       "function": "normaliseRemote",
-      "args": ["git@github.com.:o/r"],
+      "args": ["git@github.com:/o/r"],
       "expect": "github.com/o/r"
     },
     {
@@ -361,11 +361,20 @@
       "kind": "function",
       "module": "remote",
       "function": "normaliseRemote",
-      "args": ["github.com:o/r"],
+      "args": ["git@github.com.:o/r"],
       "expect": "github.com/o/r"
     },
     {
       "id": "remote.040",
+      "from": "recorded: normaliseRemote, a spelling of one repository reads as that repository",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["github.com:o/r"],
+      "expect": "github.com/o/r"
+    },
+    {
+      "id": "remote.041",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -374,7 +383,7 @@
       "expect": ""
     },
     {
-      "id": "remote.041",
+      "id": "remote.042",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -383,7 +392,7 @@
       "expect": ""
     },
     {
-      "id": "remote.042",
+      "id": "remote.043",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -392,7 +401,7 @@
       "expect": ""
     },
     {
-      "id": "remote.043",
+      "id": "remote.044",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -401,7 +410,7 @@
       "expect": ""
     },
     {
-      "id": "remote.044",
+      "id": "remote.045",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -410,7 +419,7 @@
       "expect": ""
     },
     {
-      "id": "remote.045",
+      "id": "remote.046",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -419,7 +428,7 @@
       "expect": ""
     },
     {
-      "id": "remote.046",
+      "id": "remote.047",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -428,7 +437,7 @@
       "expect": ""
     },
     {
-      "id": "remote.047",
+      "id": "remote.048",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -437,7 +446,7 @@
       "expect": ""
     },
     {
-      "id": "remote.048",
+      "id": "remote.049",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -446,7 +455,7 @@
       "expect": ""
     },
     {
-      "id": "remote.049",
+      "id": "remote.050",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -455,7 +464,7 @@
       "expect": ""
     },
     {
-      "id": "remote.050",
+      "id": "remote.051",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -464,7 +473,7 @@
       "expect": ""
     },
     {
-      "id": "remote.051",
+      "id": "remote.052",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -473,7 +482,7 @@
       "expect": ""
     },
     {
-      "id": "remote.052",
+      "id": "remote.053",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -482,7 +491,7 @@
       "expect": ""
     },
     {
-      "id": "remote.053",
+      "id": "remote.054",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -491,7 +500,7 @@
       "expect": ""
     },
     {
-      "id": "remote.054",
+      "id": "remote.055",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -500,7 +509,7 @@
       "expect": ""
     },
     {
-      "id": "remote.055",
+      "id": "remote.056",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -509,7 +518,7 @@
       "expect": ""
     },
     {
-      "id": "remote.056",
+      "id": "remote.057",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -518,7 +527,7 @@
       "expect": ""
     },
     {
-      "id": "remote.057",
+      "id": "remote.058",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -527,7 +536,7 @@
       "expect": ""
     },
     {
-      "id": "remote.058",
+      "id": "remote.059",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -536,7 +545,7 @@
       "expect": ""
     },
     {
-      "id": "remote.059",
+      "id": "remote.060",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -545,7 +554,7 @@
       "expect": ""
     },
     {
-      "id": "remote.060",
+      "id": "remote.061",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -554,7 +563,7 @@
       "expect": ""
     },
     {
-      "id": "remote.061",
+      "id": "remote.062",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -563,7 +572,7 @@
       "expect": ""
     },
     {
-      "id": "remote.062",
+      "id": "remote.063",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -572,7 +581,7 @@
       "expect": ""
     },
     {
-      "id": "remote.063",
+      "id": "remote.064",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -581,7 +590,7 @@
       "expect": ""
     },
     {
-      "id": "remote.064",
+      "id": "remote.065",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -590,7 +599,7 @@
       "expect": ""
     },
     {
-      "id": "remote.065",
+      "id": "remote.066",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -599,7 +608,7 @@
       "expect": ""
     },
     {
-      "id": "remote.066",
+      "id": "remote.067",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -608,7 +617,7 @@
       "expect": ""
     },
     {
-      "id": "remote.067",
+      "id": "remote.068",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -617,7 +626,7 @@
       "expect": ""
     },
     {
-      "id": "remote.068",
+      "id": "remote.069",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -626,7 +635,7 @@
       "expect": ""
     },
     {
-      "id": "remote.069",
+      "id": "remote.070",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -635,7 +644,7 @@
       "expect": ""
     },
     {
-      "id": "remote.070",
+      "id": "remote.071",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -644,7 +653,7 @@
       "expect": ""
     },
     {
-      "id": "remote.071",
+      "id": "remote.072",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -653,7 +662,7 @@
       "expect": ""
     },
     {
-      "id": "remote.072",
+      "id": "remote.073",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -662,7 +671,7 @@
       "expect": ""
     },
     {
-      "id": "remote.073",
+      "id": "remote.074",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -671,7 +680,7 @@
       "expect": ""
     },
     {
-      "id": "remote.074",
+      "id": "remote.075",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -680,7 +689,7 @@
       "expect": ""
     },
     {
-      "id": "remote.075",
+      "id": "remote.076",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -689,7 +698,7 @@
       "expect": ""
     },
     {
-      "id": "remote.076",
+      "id": "remote.077",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -698,7 +707,7 @@
       "expect": ""
     },
     {
-      "id": "remote.077",
+      "id": "remote.078",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -707,7 +716,7 @@
       "expect": ""
     },
     {
-      "id": "remote.078",
+      "id": "remote.079",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -716,7 +725,7 @@
       "expect": ""
     },
     {
-      "id": "remote.079",
+      "id": "remote.080",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -725,7 +734,7 @@
       "expect": ""
     },
     {
-      "id": "remote.080",
+      "id": "remote.081",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -734,7 +743,7 @@
       "expect": ""
     },
     {
-      "id": "remote.081",
+      "id": "remote.082",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -743,7 +752,7 @@
       "expect": ""
     },
     {
-      "id": "remote.082",
+      "id": "remote.083",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -752,7 +761,7 @@
       "expect": ""
     },
     {
-      "id": "remote.083",
+      "id": "remote.084",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -761,7 +770,7 @@
       "expect": ""
     },
     {
-      "id": "remote.084",
+      "id": "remote.085",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -770,7 +779,7 @@
       "expect": ""
     },
     {
-      "id": "remote.085",
+      "id": "remote.086",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -779,7 +788,7 @@
       "expect": ""
     },
     {
-      "id": "remote.086",
+      "id": "remote.087",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -788,7 +797,7 @@
       "expect": ""
     },
     {
-      "id": "remote.087",
+      "id": "remote.088",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -797,7 +806,7 @@
       "expect": ""
     },
     {
-      "id": "remote.088",
+      "id": "remote.089",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -806,7 +815,7 @@
       "expect": ""
     },
     {
-      "id": "remote.089",
+      "id": "remote.090",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -815,7 +824,7 @@
       "expect": ""
     },
     {
-      "id": "remote.090",
+      "id": "remote.091",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -824,7 +833,7 @@
       "expect": ""
     },
     {
-      "id": "remote.091",
+      "id": "remote.092",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -833,7 +842,7 @@
       "expect": ""
     },
     {
-      "id": "remote.092",
+      "id": "remote.093",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -842,7 +851,7 @@
       "expect": ""
     },
     {
-      "id": "remote.093",
+      "id": "remote.094",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -851,7 +860,7 @@
       "expect": ""
     },
     {
-      "id": "remote.094",
+      "id": "remote.095",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -860,7 +869,7 @@
       "expect": ""
     },
     {
-      "id": "remote.095",
+      "id": "remote.096",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -869,7 +878,7 @@
       "expect": ""
     },
     {
-      "id": "remote.096",
+      "id": "remote.097",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -878,7 +887,7 @@
       "expect": ""
     },
     {
-      "id": "remote.097",
+      "id": "remote.098",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -887,7 +896,7 @@
       "expect": ""
     },
     {
-      "id": "remote.098",
+      "id": "remote.099",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -896,7 +905,7 @@
       "expect": ""
     },
     {
-      "id": "remote.099",
+      "id": "remote.100",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -905,7 +914,7 @@
       "expect": ""
     },
     {
-      "id": "remote.100",
+      "id": "remote.101",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -914,7 +923,7 @@
       "expect": ""
     },
     {
-      "id": "remote.101",
+      "id": "remote.102",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -923,7 +932,7 @@
       "expect": ""
     },
     {
-      "id": "remote.102",
+      "id": "remote.103",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -932,7 +941,7 @@
       "expect": ""
     },
     {
-      "id": "remote.103",
+      "id": "remote.104",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -941,7 +950,7 @@
       "expect": ""
     },
     {
-      "id": "remote.104",
+      "id": "remote.105",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -950,7 +959,7 @@
       "expect": ""
     },
     {
-      "id": "remote.105",
+      "id": "remote.106",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -959,7 +968,7 @@
       "expect": ""
     },
     {
-      "id": "remote.106",
+      "id": "remote.107",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -968,7 +977,7 @@
       "expect": ""
     },
     {
-      "id": "remote.107",
+      "id": "remote.108",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -977,7 +986,7 @@
       "expect": ""
     },
     {
-      "id": "remote.108",
+      "id": "remote.109",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -986,7 +995,7 @@
       "expect": ""
     },
     {
-      "id": "remote.109",
+      "id": "remote.110",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -995,7 +1004,7 @@
       "expect": ""
     },
     {
-      "id": "remote.110",
+      "id": "remote.111",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -1004,7 +1013,7 @@
       "expect": ""
     },
     {
-      "id": "remote.111",
+      "id": "remote.112",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -1013,7 +1022,7 @@
       "expect": ""
     },
     {
-      "id": "remote.112",
+      "id": "remote.113",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -1022,7 +1031,7 @@
       "expect": ""
     },
     {
-      "id": "remote.113",
+      "id": "remote.114",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -1031,7 +1040,7 @@
       "expect": ""
     },
     {
-      "id": "remote.114",
+      "id": "remote.115",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -1040,7 +1049,7 @@
       "expect": ""
     },
     {
-      "id": "remote.115",
+      "id": "remote.116",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -1049,7 +1058,7 @@
       "expect": ""
     },
     {
-      "id": "remote.116",
+      "id": "remote.117",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -1058,7 +1067,7 @@
       "expect": ""
     },
     {
-      "id": "remote.117",
+      "id": "remote.118",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -1067,7 +1076,7 @@
       "expect": ""
     },
     {
-      "id": "remote.118",
+      "id": "remote.119",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -1076,7 +1085,7 @@
       "expect": ""
     },
     {
-      "id": "remote.119",
+      "id": "remote.120",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -1085,7 +1094,7 @@
       "expect": ""
     },
     {
-      "id": "remote.120",
+      "id": "remote.121",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -1094,7 +1103,7 @@
       "expect": ""
     },
     {
-      "id": "remote.121",
+      "id": "remote.122",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -1103,7 +1112,7 @@
       "expect": ""
     },
     {
-      "id": "remote.122",
+      "id": "remote.123",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -1112,7 +1121,7 @@
       "expect": ""
     },
     {
-      "id": "remote.123",
+      "id": "remote.124",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -1121,7 +1130,7 @@
       "expect": ""
     },
     {
-      "id": "remote.124",
+      "id": "remote.125",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
@@ -1130,21 +1139,12 @@
       "expect": ""
     },
     {
-      "id": "remote.125",
-      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
-      "kind": "function",
-      "module": "remote",
-      "function": "normaliseRemote",
-      "args": ["git@github.com:o/x%23/../../other/r"],
-      "expect": ""
-    },
-    {
       "id": "remote.126",
       "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
       "kind": "function",
       "module": "remote",
       "function": "normaliseRemote",
-      "args": ["git@github.com:o/./r"],
+      "args": ["https://[1::2:3:4:5:6:7]/o/r"],
       "expect": ""
     },
     {
@@ -1153,7 +1153,7 @@
       "kind": "function",
       "module": "remote",
       "function": "normaliseRemote",
-      "args": ["git@github.com:o//r"],
+      "args": ["git@github.com:o/x%23/../../other/r"],
       "expect": ""
     },
     {
@@ -1162,7 +1162,7 @@
       "kind": "function",
       "module": "remote",
       "function": "normaliseRemote",
-      "args": ["git@github.com:o/r/.git"],
+      "args": ["git@github.com:o/./r"],
       "expect": ""
     },
     {
@@ -1171,7 +1171,7 @@
       "kind": "function",
       "module": "remote",
       "function": "normaliseRemote",
-      "args": ["git@github.com:o/%72"],
+      "args": ["git@github.com:o//r"],
       "expect": ""
     },
     {
@@ -1180,7 +1180,7 @@
       "kind": "function",
       "module": "remote",
       "function": "normaliseRemote",
-      "args": ["git@github.com:o/my project"],
+      "args": ["git@github.com://o/r"],
       "expect": ""
     },
     {
@@ -1189,7 +1189,7 @@
       "kind": "function",
       "module": "remote",
       "function": "normaliseRemote",
-      "args": ["git@github.com:o/r%20x"],
+      "args": ["git@github.com:o/r/.git"],
       "expect": ""
     },
     {
@@ -1198,7 +1198,7 @@
       "kind": "function",
       "module": "remote",
       "function": "normaliseRemote",
-      "args": ["git@%67ithub.com:o/r"],
+      "args": ["git@github.com:o/%72"],
       "expect": ""
     },
     {
@@ -1207,11 +1207,38 @@
       "kind": "function",
       "module": "remote",
       "function": "normaliseRemote",
-      "args": ["git@2130706433:o/r"],
+      "args": ["git@github.com:o/my project"],
       "expect": ""
     },
     {
       "id": "remote.134",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["git@github.com:o/r%20x"],
+      "expect": ""
+    },
+    {
+      "id": "remote.135",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["git@%67ithub.com:o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.136",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["git@2130706433:o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.137",
       "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
       "kind": "function",
       "module": "remote",
@@ -1220,7 +1247,7 @@
       "expect": "github.com/o/r"
     },
     {
-      "id": "remote.135",
+      "id": "remote.138",
       "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
       "kind": "function",
       "module": "remote",
@@ -1229,7 +1256,7 @@
       "expect": "github.com/o/r"
     },
     {
-      "id": "remote.136",
+      "id": "remote.139",
       "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
       "kind": "function",
       "module": "remote",
@@ -1238,7 +1265,7 @@
       "expect": "github.com/o/r"
     },
     {
-      "id": "remote.137",
+      "id": "remote.140",
       "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
       "kind": "function",
       "module": "remote",
@@ -1247,7 +1274,7 @@
       "expect": "github.com/o/r"
     },
     {
-      "id": "remote.138",
+      "id": "remote.141",
       "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
       "kind": "function",
       "module": "remote",
@@ -1256,7 +1283,7 @@
       "expect": "github.com/o/r"
     },
     {
-      "id": "remote.139",
+      "id": "remote.142",
       "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
       "kind": "function",
       "module": "remote",
@@ -1265,7 +1292,7 @@
       "expect": "github.com/o/r"
     },
     {
-      "id": "remote.140",
+      "id": "remote.143",
       "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
       "kind": "function",
       "module": "remote",
@@ -1274,7 +1301,7 @@
       "expect": "github.com/o/r"
     },
     {
-      "id": "remote.141",
+      "id": "remote.144",
       "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
       "kind": "function",
       "module": "remote",
@@ -1283,7 +1310,7 @@
       "expect": "github.com/o/r"
     },
     {
-      "id": "remote.142",
+      "id": "remote.145",
       "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
       "kind": "function",
       "module": "remote",
@@ -1292,7 +1319,7 @@
       "expect": "host/p"
     },
     {
-      "id": "remote.143",
+      "id": "remote.146",
       "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
       "kind": "function",
       "module": "remote",
@@ -1301,7 +1328,7 @@
       "expect": "github.com/o/r"
     },
     {
-      "id": "remote.144",
+      "id": "remote.147",
       "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
       "kind": "function",
       "module": "remote",
@@ -1310,7 +1337,7 @@
       "expect": "github.com/o/r"
     },
     {
-      "id": "remote.145",
+      "id": "remote.148",
       "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
       "kind": "function",
       "module": "remote",
@@ -1319,7 +1346,7 @@
       "expect": "github.com/o/r"
     },
     {
-      "id": "remote.146",
+      "id": "remote.149",
       "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
       "kind": "function",
       "module": "remote",
@@ -1328,7 +1355,7 @@
       "expect": "github.com"
     },
     {
-      "id": "remote.147",
+      "id": "remote.150",
       "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
       "kind": "function",
       "module": "remote",
@@ -1337,7 +1364,7 @@
       "expect": "github.com/o/r"
     },
     {
-      "id": "remote.148",
+      "id": "remote.151",
       "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
       "kind": "function",
       "module": "remote",
@@ -1346,7 +1373,7 @@
       "expect": "github.com/o/r"
     },
     {
-      "id": "remote.149",
+      "id": "remote.152",
       "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
       "kind": "function",
       "module": "remote",
@@ -1355,7 +1382,7 @@
       "expect": "github.com/o/r"
     },
     {
-      "id": "remote.150",
+      "id": "remote.153",
       "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
       "kind": "function",
       "module": "remote",
@@ -1364,7 +1391,7 @@
       "expect": "github.com/o/r"
     },
     {
-      "id": "remote.151",
+      "id": "remote.154",
       "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
       "kind": "function",
       "module": "remote",
@@ -1373,7 +1400,7 @@
       "expect": "github.com/o/r"
     },
     {
-      "id": "remote.152",
+      "id": "remote.155",
       "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
       "kind": "function",
       "module": "remote",
@@ -1382,7 +1409,7 @@
       "expect": "github.com/o/r"
     },
     {
-      "id": "remote.153",
+      "id": "remote.156",
       "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
       "kind": "function",
       "module": "remote",
@@ -1391,7 +1418,7 @@
       "expect": "[::1]/o/r"
     },
     {
-      "id": "remote.154",
+      "id": "remote.157",
       "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
       "kind": "function",
       "module": "remote",
@@ -1400,7 +1427,7 @@
       "expect": "[::1]/o/r"
     },
     {
-      "id": "remote.155",
+      "id": "remote.158",
       "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
       "kind": "function",
       "module": "remote",
@@ -1409,7 +1436,7 @@
       "expect": "127.0.0.1/o/r"
     },
     {
-      "id": "remote.156",
+      "id": "remote.159",
       "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
       "kind": "function",
       "module": "remote",
@@ -1418,7 +1445,7 @@
       "expect": "[2001:db8::1:0:0:1]/o/r"
     },
     {
-      "id": "remote.157",
+      "id": "remote.160",
       "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
       "kind": "function",
       "module": "remote",
@@ -1427,7 +1454,16 @@
       "expect": "[::]/o/r"
     },
     {
-      "id": "remote.158",
+      "id": "remote.161",
+      "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://[1:0:2:3:4:5:6:7]/o/r"],
+      "expect": "[1:0:2:3:4:5:6:7]/o/r"
+    },
+    {
+      "id": "remote.162",
       "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
       "kind": "function",
       "module": "remote",
@@ -1436,7 +1472,7 @@
       "expect": "[1:2:3:4:5:6:7:8]/o/r"
     },
     {
-      "id": "remote.159",
+      "id": "remote.163",
       "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
       "kind": "function",
       "module": "remote",
@@ -1445,7 +1481,7 @@
       "expect": "xn--bcher-kva.example/o/r"
     },
     {
-      "id": "remote.160",
+      "id": "remote.164",
       "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
       "kind": "function",
       "module": "remote",
@@ -1454,7 +1490,7 @@
       "expect": "dev.azure.com/org/my%20project/_git/repo"
     },
     {
-      "id": "remote.161",
+      "id": "remote.165",
       "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
       "kind": "function",
       "module": "remote",
@@ -1463,7 +1499,7 @@
       "expect": "dev.azure.com/org/my%20project/_git/repo"
     },
     {
-      "id": "remote.162",
+      "id": "remote.166",
       "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
       "kind": "function",
       "module": "remote",
@@ -1472,7 +1508,7 @@
       "expect": "github.com/o/r~x"
     },
     {
-      "id": "remote.163",
+      "id": "remote.167",
       "from": "recorded: normaliseRemote, a remote that cannot be told from a credential is unknown",
       "kind": "function",
       "module": "remote",
@@ -1481,7 +1517,7 @@
       "expect": ""
     },
     {
-      "id": "remote.164",
+      "id": "remote.168",
       "from": "recorded: normaliseRemote, a remote that cannot be told from a credential is unknown",
       "kind": "function",
       "module": "remote",
@@ -1490,7 +1526,7 @@
       "expect": ""
     },
     {
-      "id": "remote.165",
+      "id": "remote.169",
       "from": "recorded: normaliseRemote, a remote that cannot be told from a credential is unknown",
       "kind": "function",
       "module": "remote",
@@ -1499,7 +1535,7 @@
       "expect": ""
     },
     {
-      "id": "remote.166",
+      "id": "remote.170",
       "from": "recorded: normaliseRemote, a remote that cannot be told from a credential is unknown",
       "kind": "function",
       "module": "remote",
@@ -1508,7 +1544,7 @@
       "expect": ""
     },
     {
-      "id": "remote.167",
+      "id": "remote.171",
       "from": "recorded: normaliseRemote, a remote that cannot be told from a credential is unknown",
       "kind": "function",
       "module": "remote",
@@ -1517,7 +1553,7 @@
       "expect": ""
     },
     {
-      "id": "remote.168",
+      "id": "remote.172",
       "from": "recorded: normaliseRemote, a remote that cannot be told from a credential is unknown",
       "kind": "function",
       "module": "remote",
@@ -1526,7 +1562,7 @@
       "expect": ""
     },
     {
-      "id": "remote.169",
+      "id": "remote.173",
       "from": "recorded: normaliseRemote, a remote that cannot be told from a credential is unknown",
       "kind": "function",
       "module": "remote",
@@ -1535,7 +1571,7 @@
       "expect": ""
     },
     {
-      "id": "remote.170",
+      "id": "remote.174",
       "from": "recorded: normaliseRemote, a remote that cannot be told from a credential is unknown",
       "kind": "function",
       "module": "remote",
@@ -1544,7 +1580,7 @@
       "expect": ""
     },
     {
-      "id": "remote.171",
+      "id": "remote.175",
       "from": "recorded: normaliseRemote, a remote that cannot be told from a credential is unknown",
       "kind": "function",
       "module": "remote",
@@ -1553,7 +1589,7 @@
       "expect": ""
     },
     {
-      "id": "remote.172",
+      "id": "remote.176",
       "from": "recorded: normaliseRemote, a remote that cannot be told from a credential is unknown",
       "kind": "function",
       "module": "remote",
@@ -1562,7 +1598,7 @@
       "expect": ""
     },
     {
-      "id": "remote.173",
+      "id": "remote.177",
       "from": "recorded: normaliseRemote, a remote that cannot be told from a credential is unknown",
       "kind": "function",
       "module": "remote",
@@ -1571,7 +1607,7 @@
       "expect": ""
     },
     {
-      "id": "remote.174",
+      "id": "remote.178",
       "from": "recorded: normaliseRemote, a remote that cannot be told from a credential is unknown",
       "kind": "function",
       "module": "remote",
@@ -1580,7 +1616,7 @@
       "expect": ""
     },
     {
-      "id": "remote.175",
+      "id": "remote.179",
       "from": "recorded: normaliseRemote, input git takes as a local path keeps every character it has",
       "kind": "function",
       "module": "remote",
@@ -1589,7 +1625,7 @@
       "expect": "/srv/git/a@b/repo"
     },
     {
-      "id": "remote.176",
+      "id": "remote.180",
       "from": "recorded: normaliseRemote, input git takes as a local path keeps every character it has",
       "kind": "function",
       "module": "remote",
@@ -1598,7 +1634,7 @@
       "expect": "/srv/git/my#repo"
     },
     {
-      "id": "remote.177",
+      "id": "remote.181",
       "from": "recorded: normaliseRemote, input git takes as a local path keeps every character it has",
       "kind": "function",
       "module": "remote",
@@ -1607,7 +1643,7 @@
       "expect": "/srv/git/my?repo"
     },
     {
-      "id": "remote.178",
+      "id": "remote.182",
       "from": "recorded: normaliseRemote, input git takes as a local path keeps every character it has",
       "kind": "function",
       "module": "remote",
@@ -1616,7 +1652,7 @@
       "expect": "./a@b/c#d?e"
     },
     {
-      "id": "remote.179",
+      "id": "remote.183",
       "from": "recorded: normaliseRemote, input git takes as a local path keeps every character it has",
       "kind": "function",
       "module": "remote",
@@ -1625,7 +1661,7 @@
       "expect": "../x@y"
     },
     {
-      "id": "remote.180",
+      "id": "remote.184",
       "from": "recorded: normaliseRemote, input git takes as a local path keeps every character it has",
       "kind": "function",
       "module": "remote",
@@ -1634,7 +1670,7 @@
       "expect": "~/a@b/repo"
     },
     {
-      "id": "remote.181",
+      "id": "remote.185",
       "from": "recorded: normaliseRemote, input git takes as a local path keeps every character it has",
       "kind": "function",
       "module": "remote",
@@ -1643,7 +1679,7 @@
       "expect": "a@b/repo"
     },
     {
-      "id": "remote.182",
+      "id": "remote.186",
       "from": "recorded: normaliseRemote, input git takes as a local path keeps every character it has",
       "kind": "function",
       "module": "remote",
@@ -1652,7 +1688,7 @@
       "expect": "c:\\repo"
     },
     {
-      "id": "remote.183",
+      "id": "remote.187",
       "from": "recorded: normaliseRemote, input git takes as a local path keeps every character it has",
       "kind": "function",
       "module": "remote",
@@ -1661,7 +1697,7 @@
       "expect": "c:/repo@x#y"
     },
     {
-      "id": "remote.184",
+      "id": "remote.188",
       "from": "recorded: normaliseRemote, input git takes as a local path keeps every character it has",
       "kind": "function",
       "module": "remote",
@@ -1670,7 +1706,7 @@
       "expect": "\\\\server\\share@x\\repo"
     },
     {
-      "id": "remote.185",
+      "id": "remote.189",
       "from": "recorded: normaliseRemote, input git takes as a local path keeps every character it has",
       "kind": "function",
       "module": "remote",
@@ -1679,7 +1715,7 @@
       "expect": "/srv/git/a@b/repo"
     },
     {
-      "id": "remote.186",
+      "id": "remote.190",
       "from": "recorded: normaliseRemote, input git takes as a local path keeps every character it has",
       "kind": "function",
       "module": "remote",
@@ -1688,7 +1724,7 @@
       "expect": "/srv/r"
     },
     {
-      "id": "remote.187",
+      "id": "remote.191",
       "from": "recorded: normaliseRemote, input git takes as a local path keeps every character it has",
       "kind": "function",
       "module": "remote",
@@ -1697,7 +1733,7 @@
       "expect": "/srv/git/x/../../etc/r"
     },
     {
-      "id": "remote.188",
+      "id": "remote.192",
       "from": "recorded: normaliseRemote, input git takes as a local path keeps every character it has",
       "kind": "function",
       "module": "remote",
@@ -1706,7 +1742,7 @@
       "expect": "/srv/git/%2e%2e/etc/r"
     },
     {
-      "id": "remote.189",
+      "id": "remote.193",
       "from": "recorded: normaliseRemote, input git takes as a local path keeps every character it has",
       "kind": "function",
       "module": "remote",
@@ -1715,22 +1751,85 @@
       "expect": "/srv/repo"
     },
     {
-      "id": "remote.190",
+      "id": "remote.194",
       "from": "recorded: normaliseRemote, input git takes as a local path keeps every character it has",
       "kind": "function",
       "module": "remote",
       "function": "normaliseRemote",
       "args": ["git@host.example:/srv/git/r.git"],
-      "expect": "host.example//srv/git/r"
+      "expect": "host.example/srv/git/r"
     },
     {
-      "id": "remote.191",
+      "id": "remote.195",
       "from": "recorded: normaliseRemote, input git takes as a local path keeps every character it has",
       "kind": "function",
       "module": "remote",
       "function": "normaliseRemote",
       "args": ["git@host.example:srv/git/r.git"],
       "expect": "host.example/srv/git/r"
+    },
+    {
+      "id": "remote.196",
+      "from": "recorded: normaliseRemote, input git takes as a local path keeps every character it has",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["ssh://git@host.example/srv/git/r.git"],
+      "expect": "host.example/srv/git/r"
+    },
+    {
+      "id": "remote.197",
+      "from": "recorded: normaliseRemote, input git takes as a local path keeps every character it has",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["/srv/repo "],
+      "expect": "/srv/repo "
+    },
+    {
+      "id": "remote.198",
+      "from": "recorded: normaliseRemote, input git takes as a local path keeps every character it has",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": [" /srv/repo"],
+      "expect": " /srv/repo"
+    },
+    {
+      "id": "remote.199",
+      "from": "recorded: normaliseRemote, input git takes as a local path keeps every character it has",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["C:\\Repo "],
+      "expect": "c:\\repo "
+    },
+    {
+      "id": "remote.200",
+      "from": "recorded: by design, a relative local path whose text equals a network remote's normal form compares equal to it",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["github.com/o/r"],
+      "expect": "github.com/o/r"
+    },
+    {
+      "id": "remote.201",
+      "from": "recorded: by design, the scheme is not part of the compared string",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["git://github.com/o/r"],
+      "expect": "github.com/o/r"
+    },
+    {
+      "id": "remote.202",
+      "from": "recorded: by design, the port is not part of the compared string",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["ssh://git@github.com:2222/o/r"],
+      "expect": "github.com/o/r"
     }
   ]
 }
