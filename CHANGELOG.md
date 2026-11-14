@@ -1,3 +1,18 @@
+## [7.1.1](https://github.com/ExaDev/agent-permissions/compare/v7.1.0...v7.1.1) (2026-11-14)
+
+### Bug Fixes
+
+* **evaluate:** drop a credential from every place a remote carries one, and keep local paths ([4b22a91](https://github.com/ExaDev/agent-permissions/commit/4b22a9163ab3ebbdf24a2396d299950ba45db952))
+* **evaluate:** read a remote as the one repository it names, or as unknown ([bd25164](https://github.com/ExaDev/agent-permissions/commit/bd25164120558dc03e4cbee5e02842af1f79f3eb))
+* **evaluate:** read a remote's host, path and surroundings in one canonical spelling ([2a863e0](https://github.com/ExaDev/agent-permissions/commit/2a863e0c764b574cc9789fccc9743af7fd978fcc))
+* **evaluate:** read the three spellings of one host path as one string ([0724be3](https://github.com/ExaDev/agent-permissions/commit/0724be31768d844ffe7e43d07fd20908806a013a))
+* **evaluate:** treat a remote it cannot interpret as unknown in when.remote ([6fd05dd](https://github.com/ExaDev/agent-permissions/commit/6fd05dd5f5a3ca2237d62737ebd9bc609b246e28))
+
+### Tests
+
+* add corpus cases for the remote normaliser and for an unknown remote at evaluate level ([883b1e3](https://github.com/ExaDev/agent-permissions/commit/883b1e319d55a2163f92e55df0d41bebea2d93f7))
+* record the single-host path spelling, whitespace on local paths and the by-design reads ([dc75618](https://github.com/ExaDev/agent-permissions/commit/dc75618414ca95927803856823a9cf00b4aa6225))
+
 ## [7.1.0](https://github.com/ExaDev/agent-permissions/compare/v7.0.1...v7.1.0) (2026-11-14)
 
 ### Features
