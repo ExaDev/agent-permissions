@@ -7,12 +7,14 @@
  *
  * Credentials are dropped so a token embedded in a URL never reaches a comparison, a log or a trace. A remote can carry one in the user information of a `scheme://` URL (everything up to the last `@` of its authority, so an unencoded `@` in a password is not the end of it), in its query or fragment (cut at a literal `?` or `#` only, since an encoded one is part of the path), and in the user information of git's scp-like shorthand (`[user@]host:path`), which a `user:token@host:path` spelling extends with a password. A local path is never read as any of these: the input git itself would take as a path (it has no `scheme://`, and no `:` before its first `/`) keeps every character it has, `@`, `#` and `?` included.
  *
- * Stripping must never change which repository a remote names, so a network remote (any `scheme://` URL except a `file:///` path, and the scp-like shorthand) is unknown when its spelling could reach a repository other than the one its text suggests, or the same repository as another spelling. That is: an empty authority on any scheme but `file`; a host that is missing, is not followed by a numeric port, holds a backslash, a control character or a percent-encoding; a path with a `.` or `..` segment, an empty segment, a control character, a backslash or an `@`; a percent-encoded octet in the path that is malformed or decodes to `/`, `.`, `?`, `#`, `@`, `:`, `\`, `%`, a control character or a letter, digit, `-`, `_` or `~` (those have a plain spelling); and a last segment of `.git`. A host's trailing dot is removed and the host is lower-cased.
+ * Stripping must never change which repository a remote names, and one repository must have one spelling, so a network remote (any `scheme://` URL except a `file:///` path, and the scp-like shorthand) is unknown when its spelling could reach a repository other than the one its text suggests, or the same one as another spelling. That is: text that starts or ends with whitespace; an empty authority on any scheme but `file`; a host that is not exactly a DNS name, a canonical IPv4 address or a canonical bracketed IPv6 address (see `cleanHost`), or whose port is not a number, or whose authority holds a backslash; a path with a non-ASCII character, a `.` or `..` segment, an empty segment, a control character, a backslash or an `@`, or a percent-encoding other than `%20` (a space is written `%20`, and a path that is not percent-decoded, the scp-like shorthand, holds no `%` or space); and a last segment of `.git`. The scheme and the port are dropped, so `host/path` reads an ssh URL's absolute path and the scp-like shorthand's home-relative path the same, as a forge serves them. A local path is returned as written, `..` segments included.
  *
  * Never throws. The empty string means the input is unknown in one of those ways. It matches no `when.remote` pattern, and `evaluate` treats it as unknown for `when.remote` and for a predicate's `remote` reference alike.
  */
 export function normaliseRemote(remote: string): string {
-  const interpreted = interpret(remote.trim());
+  // git does not strip leading whitespace, so text that starts or ends with any is not the remote it appears to be.
+  if (/^\s|\s$/u.test(remote)) return "";
+  const interpreted = interpret(remote);
   if (interpreted === undefined) return "";
   return interpreted
     .toLowerCase()
@@ -56,7 +58,7 @@ function fromUrl(scheme: string, rest: string): string | undefined {
   const bare = /^(\[[^\]]*\]|[^:[\]]*)(?::(\d*))?$/u.exec(host);
   const name = cleanHost(bare?.[1]);
   if (name === undefined) return undefined;
-  const path = checkedPath(tail.slice(1));
+  const path = checkedPath(tail.slice(1), true);
   if (path === undefined) return undefined;
   return path === "" ? name : `${name}/${path}`;
 }
@@ -75,43 +77,100 @@ function fromScp(rest: string, strict: boolean): string | undefined {
   const absolute = path.startsWith("/");
   const checked = checkedPath(
     withoutQueryAndFragment(absolute ? path.slice(1) : path),
+    false,
   );
   if (name === undefined || checked === undefined) return undefined;
   return `${name}/${absolute ? "/" : ""}${checked}`;
 }
 
-/** The host without a trailing dot, or undefined when it is missing, has an empty label, holds a control character or holds a percent-encoding. */
+/**
+ * The host in its one canonical spelling, or undefined when it has any other. A host is exactly one of: a DNS name of ASCII letter, digit and hyphen labels separated by single dots (lower-cased, one trailing dot removed, no label starting or ending with a hyphen, a last label that is neither all digits nor starts with `0x`); an IPv4 address as four decimal octets without leading zeros; or a bracketed IPv6 address in canonical RFC 5952 text. Anything else reaches a machine under a spelling this function would compare differently (a non-ASCII look-alike, an integer, hex, octal or short IPv4, an uncompressed or upper-case IPv6), so it is unknown.
+ */
 function cleanHost(host: string | undefined): string | undefined {
   if (host === undefined || host === "") return undefined;
-  if (host.includes("%") || hasControl(host, true)) return undefined;
-  const name = host.replace(/\.$/u, "");
-  // An empty label (`github.com..`, `a..b`) is no host.
-  return name === "" || name.includes("..") || name.endsWith(".")
-    ? undefined
-    : name;
+  if (host.startsWith("[")) {
+    return isCanonicalIpv6(host.slice(1, -1)) && host.endsWith("]")
+      ? host
+      : undefined;
+  }
+  const name = host.toLowerCase().replace(/\.$/u, "");
+  const label = "[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
+  if (!new RegExp(`^${label}(?:\\.${label})*$`, "u").test(name)) {
+    return undefined;
+  }
+  const last = name.slice(name.lastIndexOf(".") + 1);
+  if (/^[0-9]+$/u.test(last) || last.startsWith("0x")) {
+    return isCanonicalIpv4(name) ? name : undefined;
+  }
+  return name;
 }
 
-/** The bytes a path's percent-encoding may not spell, because the plain character has its own spelling or changes what the path names. */
-function isAmbiguousOctet(octet: number): boolean {
+/** Four decimal octets, each 0 to 255 without a leading zero. */
+function isCanonicalIpv4(text: string): boolean {
+  const octets = text.split(".");
   return (
-    octet < 0x20 ||
-    octet === 0x7f ||
-    "/.?#@:\\%-_~".includes(String.fromCharCode(octet)) ||
-    /[a-z0-9]/iu.test(String.fromCharCode(octet))
+    octets.length === 4 &&
+    octets.every(
+      (octet) => /^(?:0|[1-9][0-9]{0,2})$/u.test(octet) && Number(octet) <= 255,
+    )
   );
 }
 
+/** Whether `text` is an IPv6 address spelled as RFC 5952 writes it: lower case, no leading zeros in a group, the first longest run of two or more zero groups compressed, no zone and no embedded IPv4. */
+function isCanonicalIpv6(text: string): boolean {
+  const halves = text.split("::");
+  if (halves.length > 2) return false;
+  const groups = (part: string): string[] | undefined => {
+    if (part === "") return [];
+    const found = part.split(":");
+    return found.every((group) => /^[0-9a-f]{1,4}$/u.test(group))
+      ? found
+      : undefined;
+  };
+  const left = groups(halves[0] ?? "");
+  const right = groups(halves[1] ?? "");
+  if (left === undefined || right === undefined) return false;
+  let all: string[];
+  if (halves.length === 1) {
+    all = left;
+  } else {
+    const missing = 8 - left.length - right.length;
+    if (missing < 1) return false;
+    all = [...left, ...Array<string>(missing).fill("0"), ...right];
+  }
+  if (all.length !== 8) return false;
+  const plain = all.map((group) => Number.parseInt(group, 16).toString(16));
+  let bestStart = -1;
+  let bestLength = 1;
+  for (let start = 0; start < 8; start += 1) {
+    let length = 0;
+    while (start + length < 8 && plain[start + length] === "0") length += 1;
+    if (length > bestLength) {
+      bestStart = start;
+      bestLength = length;
+    }
+  }
+  const canonical =
+    bestStart === -1
+      ? plain.join(":")
+      : `${plain.slice(0, bestStart).join(":")}::${plain.slice(bestStart + bestLength).join(":")}`;
+  return canonical === text;
+}
+
 /**
- * A network path (without its leading slash) with its trailing slashes removed, or undefined when it names something other than its plain spelling: a `.` or `..` segment, an empty segment, a control character, a backslash, an `@`, an ambiguous or malformed percent-encoding, or a last segment of `.git`.
+ * A network path (without its leading slash) with its trailing slashes removed, or undefined when it names something other than its plain spelling: a non-ASCII character, a `.` or `..` segment, an empty segment, a control character, a backslash, an `@`, a last segment of `.git`, or a percent-encoding other than `%20`. A space in a URL path is written `%20`, so both spellings read the same. A path that is not percent-decoded (`decoded` false, the scp-like shorthand) holds neither a `%` nor a space.
  */
-function checkedPath(path: string): string | undefined {
-  const body = path.replace(/\/+$/u, "");
+function checkedPath(path: string, decoded: boolean): string | undefined {
+  let body = path.replace(/\/+$/u, "");
   if (body === "") return "";
-  if (/[\\@]/u.test(body) || hasControl(body, false)) return undefined;
-  for (const match of body.matchAll(/%(.{0,2})/gu)) {
-    const digits = match[1] ?? "";
-    if (!/^[0-9a-f]{2}$/iu.test(digits)) return undefined;
-    if (isAmbiguousOctet(Number.parseInt(digits, 16))) return undefined;
+  if (/[\\@]/u.test(body) || hasControl(body) || hasNonAscii(body)) {
+    return undefined;
+  }
+  if (decoded) {
+    body = body.replaceAll(" ", "%20");
+    if (body.replaceAll("%20", "").includes("%")) return undefined;
+  } else if (/[% ]/u.test(body)) {
+    return undefined;
   }
   const segments = body.split("/");
   for (const segment of segments) {
@@ -129,11 +188,19 @@ function withoutQueryAndFragment(text: string): string {
   return cut === -1 ? text : text.slice(0, cut);
 }
 
-/** Whether `text` holds a control character, or a space when `space` is set. */
-function hasControl(text: string, space: boolean): boolean {
+/** Whether `text` holds a control character. */
+function hasControl(text: string): boolean {
   for (let index = 0; index < text.length; index += 1) {
     const code = text.charCodeAt(index);
-    if (code < 0x20 || code === 0x7f || (space && code === 0x20)) return true;
+    if (code < 0x20 || code === 0x7f) return true;
+  }
+  return false;
+}
+
+/** Whether `text` holds a character outside ASCII. */
+function hasNonAscii(text: string): boolean {
+  for (let index = 0; index < text.length; index += 1) {
+    if (text.charCodeAt(index) > 0x7f) return true;
   }
   return false;
 }
