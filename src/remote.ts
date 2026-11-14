@@ -7,13 +7,11 @@
  *
  * Credentials are dropped so a token embedded in a URL never reaches a comparison, a log or a trace. A remote can carry one in the user information of a `scheme://` URL (everything up to the last `@` of its authority, so an unencoded `@` in a password is not the end of it), in its query or fragment (cut at a literal `?` or `#` only, since an encoded one is part of the path), and in the user information of git's scp-like shorthand (`[user@]host:path`), which a `user:token@host:path` spelling extends with a password. A local path is never read as any of these: the input git itself would take as a path (it has no `scheme://`, and no `:` before its first `/`) keeps every character it has, `@`, `#` and `?` included.
  *
- * Stripping must never change which repository a remote names, and one repository must have one spelling, so a network remote (any `scheme://` URL except a `file:///` path, and the scp-like shorthand) is unknown when its spelling could reach a repository other than the one its text suggests, or the same one as another spelling. That is: text that starts or ends with whitespace; an empty authority on any scheme but `file`; a host that is not exactly a DNS name, a canonical IPv4 address or a canonical bracketed IPv6 address (see `cleanHost`), or whose port is not a number, or whose authority holds a backslash; a path with a non-ASCII character, a `.` or `..` segment, an empty segment, a control character, a backslash or an `@`, or a percent-encoding other than `%20` (a space is written `%20`, and a path that is not percent-decoded, the scp-like shorthand, holds no `%` or space); and a last segment of `.git`. The scheme and the port are dropped, so `host/path` reads an ssh URL's absolute path and the scp-like shorthand's home-relative path the same, as a forge serves them. A local path is returned as written, `..` segments included.
+ * Stripping must never change which repository a remote names, and one repository must have one spelling, so a network remote (any `scheme://` URL except a `file:///` path, and the scp-like shorthand) is unknown when its spelling could reach a repository other than the one its text suggests, or the same one as another spelling. That is: whitespace at either end of a network form; an empty authority on any scheme but `file`; a host that is not exactly a DNS name, a canonical IPv4 address or a canonical bracketed IPv6 address (see `cleanHost`), or whose port is not a number, or whose authority holds a backslash; a path with a non-ASCII character, a `.` or `..` segment, an empty segment, a control character, a backslash or an `@`, or a percent-encoding other than `%20` (a space is written `%20`, and a path that is not percent-decoded, the scp-like shorthand, holds no `%` or space); and a last segment of `.git`. The scheme and the port are not part of the compared string, and `host/path` reads an ssh URL's path, the scp-like shorthand's absolute path and its home-relative path the same, as a forge serves them, so two paths of the same text on one host are not told apart. A host with an underscore is not a DNS name and is unknown. A local path, whitespace around it included, is returned as written, `..` segments included, so a relative local path whose text equals a network remote's normal form compares equal to it.
  *
  * Never throws. The empty string means the input is unknown in one of those ways. It matches no `when.remote` pattern, and `evaluate` treats it as unknown for `when.remote` and for a predicate's `remote` reference alike.
  */
 export function normaliseRemote(remote: string): string {
-  // git does not strip leading whitespace, so text that starts or ends with any is not the remote it appears to be.
-  if (/^\s|\s$/u.test(remote)) return "";
   const interpreted = interpret(remote);
   if (interpreted === undefined) return "";
   return interpreted
@@ -25,9 +23,15 @@ export function normaliseRemote(remote: string): string {
 
 /** `host/path` of a `scheme://` URL, a scp-like remote or a local path; undefined when it cannot be read safely. */
 function interpret(remote: string): string | undefined {
+  // git does not strip whitespace around a remote, so a network form that starts or ends with any is not the remote it appears to be. A local path is returned as written.
+  const edge = /^\s|\s$/u.test(remote);
   const scheme = /^([a-z][a-z0-9+.-]*):\/\//iu.exec(remote);
   if (scheme?.[1] !== undefined) {
-    return fromUrl(scheme[1].toLowerCase(), remote.slice(scheme[0].length));
+    return fromUrl(
+      scheme[1].toLowerCase(),
+      remote.slice(scheme[0].length),
+      edge,
+    );
   }
 
   // A Windows drive (`C:\repo`, `C:/repo`) is a local path, not a host.
@@ -40,12 +44,16 @@ function interpret(remote: string): string | undefined {
 
   // The user information of the shorthand is dropped. A `user:token@host:path` spelling has a `:` before its `@`, which git does not read as user information but which holds a credential, so it is dropped only when a `host:path` follows it: anything else (`host:a@b/c` is a path under `host` for git) cannot be told from a password and is refused.
   const at = head.lastIndexOf("@");
-  if (at === -1) return fromScp(remote, false);
-  return fromScp(remote.slice(at + 1), head.slice(0, at).includes(":"));
+  if (at === -1) return fromScp(remote, false, edge);
+  return fromScp(remote.slice(at + 1), head.slice(0, at).includes(":"), edge);
 }
 
 /** What follows `scheme://`: `[userinfo@]host[:port][/path][?query][#fragment]`. */
-function fromUrl(scheme: string, rest: string): string | undefined {
+function fromUrl(
+  scheme: string,
+  rest: string,
+  edge: boolean,
+): string | undefined {
   const end = rest.search(/[/?#]/u);
   const authority = end === -1 ? rest : rest.slice(0, end);
   const tail = end === -1 ? "" : withoutQueryAndFragment(rest.slice(end));
@@ -53,6 +61,7 @@ function fromUrl(scheme: string, rest: string): string | undefined {
 
   // Only a file URL has no host, and its path is a local path, which is kept as it is.
   if (authority === "") return scheme === "file" ? tail : undefined;
+  if (edge) return undefined;
 
   const host = authority.slice(authority.lastIndexOf("@") + 1);
   const bare = /^(\[[^\]]*\]|[^:[\]]*)(?::(\d*))?$/u.exec(host);
@@ -64,7 +73,11 @@ function fromUrl(scheme: string, rest: string): string | undefined {
 }
 
 /** `host:path` of the scp-like shorthand, with its user information already removed; `strict` refuses what is not that shape. */
-function fromScp(rest: string, strict: boolean): string | undefined {
+function fromScp(
+  rest: string,
+  strict: boolean,
+  edge: boolean,
+): string | undefined {
   const bracketed = /^(\[[^\]]*\]):(.*)$/su.exec(rest);
   const split = bracketed ?? /^([^:/]*):(.*)$/su.exec(rest);
   const [, host, path] = split ?? [];
@@ -72,15 +85,15 @@ function fromScp(rest: string, strict: boolean): string | undefined {
   if (host === undefined || path === undefined || host.length < 2) {
     return strict ? undefined : rest;
   }
+  if (edge) return undefined;
   const name = cleanHost(host);
-  // An absolute path (`host:/srv/repo`) differs from one relative to the home directory (`host:srv/repo`), so its leading slash is kept.
-  const absolute = path.startsWith("/");
+  // A path written absolute (`host:/srv/repo`) and one relative to the home directory (`host:srv/repo`) read the same, as a forge serves them and as an ssh URL's path does, so no compared string holds an empty segment from a leading slash.
   const checked = checkedPath(
-    withoutQueryAndFragment(absolute ? path.slice(1) : path),
+    withoutQueryAndFragment(path.startsWith("/") ? path.slice(1) : path),
     false,
   );
   if (name === undefined || checked === undefined) return undefined;
-  return `${name}/${absolute ? "/" : ""}${checked}`;
+  return checked === "" ? name : `${name}/${checked}`;
 }
 
 /**
@@ -89,9 +102,7 @@ function fromScp(rest: string, strict: boolean): string | undefined {
 function cleanHost(host: string | undefined): string | undefined {
   if (host === undefined || host === "") return undefined;
   if (host.startsWith("[")) {
-    return isCanonicalIpv6(host.slice(1, -1)) && host.endsWith("]")
-      ? host
-      : undefined;
+    return isCanonicalIpv6(host.slice(1, -1)) ? host : undefined;
   }
   const name = host.toLowerCase().replace(/\.$/u, "");
   const label = "[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
