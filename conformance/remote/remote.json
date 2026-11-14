@@ -219,6 +219,1518 @@
         }
       ],
       "notes": "The original asserted this for one URL with a password. This case has a password with a path-like username, and asserts that nothing of the credential is left in the result."
+    },
+    {
+      "id": "remote.024",
+      "from": "recorded: normaliseRemote, a spelling of one repository reads as that repository",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/o/r"],
+      "expect": "github.com/o/r"
+    },
+    {
+      "id": "remote.025",
+      "from": "recorded: normaliseRemote, a spelling of one repository reads as that repository",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["HTTPS://GITHUB.COM/O/R"],
+      "expect": "github.com/o/r"
+    },
+    {
+      "id": "remote.026",
+      "from": "recorded: normaliseRemote, a spelling of one repository reads as that repository",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com./o/r"],
+      "expect": "github.com/o/r"
+    },
+    {
+      "id": "remote.027",
+      "from": "recorded: normaliseRemote, a spelling of one repository reads as that repository",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/o/r/"],
+      "expect": "github.com/o/r"
+    },
+    {
+      "id": "remote.028",
+      "from": "recorded: normaliseRemote, a spelling of one repository reads as that repository",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/o/r.git"],
+      "expect": "github.com/o/r"
+    },
+    {
+      "id": "remote.029",
+      "from": "recorded: normaliseRemote, a spelling of one repository reads as that repository",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/o/r.GIT"],
+      "expect": "github.com/o/r"
+    },
+    {
+      "id": "remote.030",
+      "from": "recorded: normaliseRemote, a spelling of one repository reads as that repository",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/o/r.git/"],
+      "expect": "github.com/o/r"
+    },
+    {
+      "id": "remote.031",
+      "from": "recorded: normaliseRemote, a spelling of one repository reads as that repository",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com:443/o/r"],
+      "expect": "github.com/o/r"
+    },
+    {
+      "id": "remote.032",
+      "from": "recorded: normaliseRemote, a spelling of one repository reads as that repository",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com:8443/o/r"],
+      "expect": "github.com/o/r"
+    },
+    {
+      "id": "remote.033",
+      "from": "recorded: normaliseRemote, a spelling of one repository reads as that repository",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://u:SEKRET@github.com/o/r"],
+      "expect": "github.com/o/r"
+    },
+    {
+      "id": "remote.034",
+      "from": "recorded: normaliseRemote, a spelling of one repository reads as that repository",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["ssh://git@github.com./o/r.git"],
+      "expect": "github.com/o/r"
+    },
+    {
+      "id": "remote.035",
+      "from": "recorded: normaliseRemote, a spelling of one repository reads as that repository",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["ssh://git@github.com/o/r"],
+      "expect": "github.com/o/r"
+    },
+    {
+      "id": "remote.036",
+      "from": "recorded: normaliseRemote, a spelling of one repository reads as that repository",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["git+ssh://git@github.com/o/r"],
+      "expect": "github.com/o/r"
+    },
+    {
+      "id": "remote.037",
+      "from": "recorded: normaliseRemote, a spelling of one repository reads as that repository",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["git@github.com:o/r.git"],
+      "expect": "github.com/o/r"
+    },
+    {
+      "id": "remote.038",
+      "from": "recorded: normaliseRemote, a spelling of one repository reads as that repository",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["git@github.com.:o/r"],
+      "expect": "github.com/o/r"
+    },
+    {
+      "id": "remote.039",
+      "from": "recorded: normaliseRemote, a spelling of one repository reads as that repository",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["github.com:o/r"],
+      "expect": "github.com/o/r"
+    },
+    {
+      "id": "remote.040",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https:///github.com/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.041",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https:///u:SEKRET@github.com/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.042",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https:///SEKRET@github.com/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.043",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["ssh:///git:SEKRET@github.com/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.044",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["git:///github.com/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.045",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["git+ssh:///github.com/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.046",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["http:///github.com/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.047",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["HTTPS:///x"],
+      "expect": ""
+    },
+    {
+      "id": "remote.048",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://@/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.049",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/o/x%23/../../other/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.050",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/o/x%3f/../../other/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.051",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/o/x%2F../../other/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.052",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/o/r%3Ftoken=SEKRET"],
+      "expect": ""
+    },
+    {
+      "id": "remote.053",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/o/r%23SEKRET"],
+      "expect": ""
+    },
+    {
+      "id": "remote.054",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/o/./r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.055",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/o/../o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.056",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/o//r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.057",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com//o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.058",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/o/r/.git"],
+      "expect": ""
+    },
+    {
+      "id": "remote.059",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/o/r/.GIT"],
+      "expect": ""
+    },
+    {
+      "id": "remote.060",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/o/r/./"],
+      "expect": ""
+    },
+    {
+      "id": "remote.061",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/o/%2e%2e/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.062",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/o/%2E/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.063",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/o%2Fx/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.064",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/o/r%5Cx"],
+      "expect": ""
+    },
+    {
+      "id": "remote.065",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/o/r%40x"],
+      "expect": ""
+    },
+    {
+      "id": "remote.066",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/o/r%3Ax"],
+      "expect": ""
+    },
+    {
+      "id": "remote.067",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/o/r%25"],
+      "expect": ""
+    },
+    {
+      "id": "remote.068",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/o/%72"],
+      "expect": ""
+    },
+    {
+      "id": "remote.069",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/%6F/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.070",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/o/r%00"],
+      "expect": ""
+    },
+    {
+      "id": "remote.071",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/o/r%7f"],
+      "expect": ""
+    },
+    {
+      "id": "remote.072",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/o/r%"],
+      "expect": ""
+    },
+    {
+      "id": "remote.073",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/o/r%zz"],
+      "expect": ""
+    },
+    {
+      "id": "remote.074",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/o/r\u0001"],
+      "expect": ""
+    },
+    {
+      "id": "remote.075",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/o\\r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.076",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/o/r@v1"],
+      "expect": ""
+    },
+    {
+      "id": "remote.077",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/o/r%2B"],
+      "expect": ""
+    },
+    {
+      "id": "remote.078",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/o/r%21"],
+      "expect": ""
+    },
+    {
+      "id": "remote.079",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/o/r%2c"],
+      "expect": ""
+    },
+    {
+      "id": "remote.080",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/o/r%C3%A9"],
+      "expect": ""
+    },
+    {
+      "id": "remote.081",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/o/ré"],
+      "expect": ""
+    },
+    {
+      "id": "remote.082",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/o/Kelvin"],
+      "expect": ""
+    },
+    {
+      "id": "remote.083",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": [" https://github.com/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.084",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/o/r "],
+      "expect": ""
+    },
+    {
+      "id": "remote.085",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["\thttps://github.com/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.086",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/o/r\n"],
+      "expect": ""
+    },
+    {
+      "id": "remote.087",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": [" https://github.com/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.088",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://%67ithub.com/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.089",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com%2e/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.090",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com\\@other.example/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.091",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com../o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.092",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://a..b/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.093",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://git hub.com/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.094",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://git\thub.com/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.095",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://-github.com/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.096",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github-.com/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.097",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://git_hub.com/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.098",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://ｇithub.com/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.099",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github。com/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.100",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com。/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.101",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://git­hub.com/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.102",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://git​hub.com/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.103",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://ℊithub.com/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.104",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://2130706433/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.105",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://0x7f.1/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.106",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://0x7f000001/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.107",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://127.1/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.108",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://0177.0.0.1/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.109",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://127.0.0.01/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.110",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://256.1.1.1/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.111",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://1.2.3/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.112",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://1.2.3.4.5/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.113",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://[0:0:0:0:0:0:0:1]/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.114",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://[::0001]/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.115",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://[::FFFF:1]/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.116",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://[2001:db8:0:0:1:0:0:1]/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.117",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://[2001:db8::0:1:0:0:1]/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.118",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://[::ffff:127.0.0.1]/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.119",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://[fe80::1%25eth0]/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.120",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://[::1/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.121",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://[]/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.122",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://[1::2::3]/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.123",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://[1:2:3:4:5:6:7:8:9]/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.124",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://[1:2:3:4:5:6:7::8]/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.125",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["git@github.com:o/x%23/../../other/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.126",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["git@github.com:o/./r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.127",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["git@github.com:o//r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.128",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["git@github.com:o/r/.git"],
+      "expect": ""
+    },
+    {
+      "id": "remote.129",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["git@github.com:o/%72"],
+      "expect": ""
+    },
+    {
+      "id": "remote.130",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["git@github.com:o/my project"],
+      "expect": ""
+    },
+    {
+      "id": "remote.131",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["git@github.com:o/r%20x"],
+      "expect": ""
+    },
+    {
+      "id": "remote.132",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["git@%67ithub.com:o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.133",
+      "from": "recorded: normaliseRemote, a remote that could name another repository, or carries a credential it cannot clear, is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["git@2130706433:o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.134",
+      "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://user:SEKRET@github.com/o/r.git"],
+      "expect": "github.com/o/r"
+    },
+    {
+      "id": "remote.135",
+      "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://SEKRET@github.com/o/r"],
+      "expect": "github.com/o/r"
+    },
+    {
+      "id": "remote.136",
+      "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://:SEKRET@github.com/o/r"],
+      "expect": "github.com/o/r"
+    },
+    {
+      "id": "remote.137",
+      "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://user:p@SEKRET@github.com/o/r"],
+      "expect": "github.com/o/r"
+    },
+    {
+      "id": "remote.138",
+      "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://user%2Fname:SEKRET@github.com/o/r"],
+      "expect": "github.com/o/r"
+    },
+    {
+      "id": "remote.139",
+      "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://user%40example.com:SEKRET@github.com/o/r"],
+      "expect": "github.com/o/r"
+    },
+    {
+      "id": "remote.140",
+      "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["git+https://user:SEKRET@github.com/o/r"],
+      "expect": "github.com/o/r"
+    },
+    {
+      "id": "remote.141",
+      "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["ssh://git:SEKRET@github.com:22/o/r.git"],
+      "expect": "github.com/o/r"
+    },
+    {
+      "id": "remote.142",
+      "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["file://user:SEKRET@host/p"],
+      "expect": "host/p"
+    },
+    {
+      "id": "remote.143",
+      "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/o/r.git?token=SEKRET"],
+      "expect": "github.com/o/r"
+    },
+    {
+      "id": "remote.144",
+      "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/o/r.git#SEKRET"],
+      "expect": "github.com/o/r"
+    },
+    {
+      "id": "remote.145",
+      "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/o/r?a=1#SEKRET"],
+      "expect": "github.com/o/r"
+    },
+    {
+      "id": "remote.146",
+      "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com:443?token=SEKRET"],
+      "expect": "github.com"
+    },
+    {
+      "id": "remote.147",
+      "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["ssh://git@github.com:22/o/r.git?token=SEKRET"],
+      "expect": "github.com/o/r"
+    },
+    {
+      "id": "remote.148",
+      "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["git@github.com:o/r.git?token=SEKRET"],
+      "expect": "github.com/o/r"
+    },
+    {
+      "id": "remote.149",
+      "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["git@github.com:o/r.git#SEKRET"],
+      "expect": "github.com/o/r"
+    },
+    {
+      "id": "remote.150",
+      "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["user:SEKRET@github.com:o/r.git"],
+      "expect": "github.com/o/r"
+    },
+    {
+      "id": "remote.151",
+      "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["user:p@SEKRET@github.com:o/r.git"],
+      "expect": "github.com/o/r"
+    },
+    {
+      "id": "remote.152",
+      "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": [":SEKRET@github.com:o/r.git"],
+      "expect": "github.com/o/r"
+    },
+    {
+      "id": "remote.153",
+      "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["git@[::1]:o/r.git"],
+      "expect": "[::1]/o/r"
+    },
+    {
+      "id": "remote.154",
+      "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["ssh://git@[::1]:22/o/r.git"],
+      "expect": "[::1]/o/r"
+    },
+    {
+      "id": "remote.155",
+      "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://127.0.0.1/o/r"],
+      "expect": "127.0.0.1/o/r"
+    },
+    {
+      "id": "remote.156",
+      "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://[2001:db8::1:0:0:1]/o/r"],
+      "expect": "[2001:db8::1:0:0:1]/o/r"
+    },
+    {
+      "id": "remote.157",
+      "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://[::]/o/r"],
+      "expect": "[::]/o/r"
+    },
+    {
+      "id": "remote.158",
+      "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://[1:2:3:4:5:6:7:8]/o/r"],
+      "expect": "[1:2:3:4:5:6:7:8]/o/r"
+    },
+    {
+      "id": "remote.159",
+      "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://xn--bcher-kva.example/o/r"],
+      "expect": "xn--bcher-kva.example/o/r"
+    },
+    {
+      "id": "remote.160",
+      "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://dev.azure.com/org/my%20project/_git/repo"],
+      "expect": "dev.azure.com/org/my%20project/_git/repo"
+    },
+    {
+      "id": "remote.161",
+      "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://dev.azure.com/org/my project/_git/repo"],
+      "expect": "dev.azure.com/org/my%20project/_git/repo"
+    },
+    {
+      "id": "remote.162",
+      "from": "recorded: normaliseRemote, a credential is dropped from every place a remote carries one",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/o/r~x"],
+      "expect": "github.com/o/r~x"
+    },
+    {
+      "id": "remote.163",
+      "from": "recorded: normaliseRemote, a remote that cannot be told from a credential is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com\\@SEKRET/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.164",
+      "from": "recorded: normaliseRemote, a remote that cannot be told from a credential is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://user:p/ss@github.com/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.165",
+      "from": "recorded: normaliseRemote, a remote that cannot be told from a credential is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://user:p?ss@github.com/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.166",
+      "from": "recorded: normaliseRemote, a remote that cannot be told from a credential is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://user:p#ss@github.com/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.167",
+      "from": "recorded: normaliseRemote, a remote that cannot be told from a credential is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://user@"],
+      "expect": ""
+    },
+    {
+      "id": "remote.168",
+      "from": "recorded: normaliseRemote, a remote that cannot be told from a credential is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://:22/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.169",
+      "from": "recorded: normaliseRemote, a remote that cannot be told from a credential is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https:/user:SEKRET@github.com/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.170",
+      "from": "recorded: normaliseRemote, a remote that cannot be told from a credential is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["https://github.com/x-access-token:SEKRET@/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.171",
+      "from": "recorded: normaliseRemote, a remote that cannot be told from a credential is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["user:p/ss@github.com:o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.172",
+      "from": "recorded: normaliseRemote, a remote that cannot be told from a credential is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["user:SEKRET@github.com/o/r"],
+      "expect": ""
+    },
+    {
+      "id": "remote.173",
+      "from": "recorded: normaliseRemote, a remote that cannot be told from a credential is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["host:a@b/x"],
+      "expect": ""
+    },
+    {
+      "id": "remote.174",
+      "from": "recorded: normaliseRemote, a remote that cannot be told from a credential is unknown",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": [""],
+      "expect": ""
+    },
+    {
+      "id": "remote.175",
+      "from": "recorded: normaliseRemote, input git takes as a local path keeps every character it has",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["/srv/git/a@b/repo.git"],
+      "expect": "/srv/git/a@b/repo"
+    },
+    {
+      "id": "remote.176",
+      "from": "recorded: normaliseRemote, input git takes as a local path keeps every character it has",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["/srv/git/my#repo.git"],
+      "expect": "/srv/git/my#repo"
+    },
+    {
+      "id": "remote.177",
+      "from": "recorded: normaliseRemote, input git takes as a local path keeps every character it has",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["/srv/git/my?repo.git"],
+      "expect": "/srv/git/my?repo"
+    },
+    {
+      "id": "remote.178",
+      "from": "recorded: normaliseRemote, input git takes as a local path keeps every character it has",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["./a@b/c#d?e"],
+      "expect": "./a@b/c#d?e"
+    },
+    {
+      "id": "remote.179",
+      "from": "recorded: normaliseRemote, input git takes as a local path keeps every character it has",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["../x@y"],
+      "expect": "../x@y"
+    },
+    {
+      "id": "remote.180",
+      "from": "recorded: normaliseRemote, input git takes as a local path keeps every character it has",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["~/a@b/repo.git"],
+      "expect": "~/a@b/repo"
+    },
+    {
+      "id": "remote.181",
+      "from": "recorded: normaliseRemote, input git takes as a local path keeps every character it has",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["a@b/repo"],
+      "expect": "a@b/repo"
+    },
+    {
+      "id": "remote.182",
+      "from": "recorded: normaliseRemote, input git takes as a local path keeps every character it has",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["C:\\Repo"],
+      "expect": "c:\\repo"
+    },
+    {
+      "id": "remote.183",
+      "from": "recorded: normaliseRemote, input git takes as a local path keeps every character it has",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["C:/Repo@x#y"],
+      "expect": "c:/repo@x#y"
+    },
+    {
+      "id": "remote.184",
+      "from": "recorded: normaliseRemote, input git takes as a local path keeps every character it has",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["\\\\Server\\Share@x\\Repo"],
+      "expect": "\\\\server\\share@x\\repo"
+    },
+    {
+      "id": "remote.185",
+      "from": "recorded: normaliseRemote, input git takes as a local path keeps every character it has",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["file:///srv/git/a@b/repo.git"],
+      "expect": "/srv/git/a@b/repo"
+    },
+    {
+      "id": "remote.186",
+      "from": "recorded: normaliseRemote, input git takes as a local path keeps every character it has",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["FILE:///srv/r"],
+      "expect": "/srv/r"
+    },
+    {
+      "id": "remote.187",
+      "from": "recorded: normaliseRemote, input git takes as a local path keeps every character it has",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["/srv/git/x/../../etc/r"],
+      "expect": "/srv/git/x/../../etc/r"
+    },
+    {
+      "id": "remote.188",
+      "from": "recorded: normaliseRemote, input git takes as a local path keeps every character it has",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["file:///srv/git/%2e%2e/etc/r"],
+      "expect": "/srv/git/%2e%2e/etc/r"
+    },
+    {
+      "id": "remote.189",
+      "from": "recorded: normaliseRemote, input git takes as a local path keeps every character it has",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["/srv/repo/.git/"],
+      "expect": "/srv/repo"
+    },
+    {
+      "id": "remote.190",
+      "from": "recorded: normaliseRemote, input git takes as a local path keeps every character it has",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["git@host.example:/srv/git/r.git"],
+      "expect": "host.example//srv/git/r"
+    },
+    {
+      "id": "remote.191",
+      "from": "recorded: normaliseRemote, input git takes as a local path keeps every character it has",
+      "kind": "function",
+      "module": "remote",
+      "function": "normaliseRemote",
+      "args": ["git@host.example:srv/git/r.git"],
+      "expect": "host.example/srv/git/r"
     }
   ]
 }

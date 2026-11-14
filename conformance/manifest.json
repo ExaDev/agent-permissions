@@ -65,7 +65,7 @@
       "skip": []
     },
     "evaluate/evaluate-env-remote.json": {
-      "cases": 13,
+      "cases": 40,
       "skip": []
     },
     "evaluate/evaluate-explain.json": {
@@ -77,7 +77,7 @@
       "skip": []
     },
     "evaluate/evaluate-predicate.json": {
-      "cases": 24,
+      "cases": 27,
       "skip": []
     },
     "evaluate/evaluate-principals.json": {
@@ -125,7 +125,7 @@
       "skip": []
     },
     "remote/remote.json": {
-      "cases": 20,
+      "cases": 188,
       "skip": []
     },
     "replay/replay.json": {

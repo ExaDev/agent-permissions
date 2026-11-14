@@ -1034,6 +1034,156 @@
           "equals": true
         }
       ]
+    },
+    {
+      "id": "evaluate-predicate.025",
+      "from": "recorded: a predicate over a remote it cannot interpret is unknown, so an allow for a matching remote does not apply",
+      "kind": "evaluate",
+      "policy": {
+        "defaultMode": "restricted",
+        "rules": [
+          {
+            "tool": "Bash",
+            "pattern": "deploy:*",
+            "tier": "allow",
+            "when": {
+              "predicate": {
+                "kind": "or",
+                "left": {
+                  "kind": "textCompare",
+                  "op": "equals",
+                  "left": {
+                    "kind": "reference",
+                    "key": "remote"
+                  },
+                  "right": {
+                    "kind": "textLiteral",
+                    "value": "github.com/acme/api"
+                  }
+                },
+                "right": {
+                  "kind": "textCompare",
+                  "op": "equals",
+                  "left": {
+                    "kind": "reference",
+                    "key": "remote"
+                  },
+                  "right": {
+                    "kind": "textLiteral",
+                    "value": "github.com/acme/web"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      "tool": "Bash",
+      "input": "deploy prod",
+      "expect": "ask",
+      "context": {
+        "remote": "https://user:p/ss@github.com/acme/api"
+      }
+    },
+    {
+      "id": "evaluate-predicate.026",
+      "from": "recorded: a predicate over a remote it cannot interpret is unknown, so an deny for a matching remote applies",
+      "kind": "evaluate",
+      "policy": {
+        "defaultMode": "autonomous",
+        "rules": [
+          {
+            "tool": "Bash",
+            "pattern": "deploy:*",
+            "tier": "deny",
+            "when": {
+              "predicate": {
+                "kind": "or",
+                "left": {
+                  "kind": "textCompare",
+                  "op": "equals",
+                  "left": {
+                    "kind": "reference",
+                    "key": "remote"
+                  },
+                  "right": {
+                    "kind": "textLiteral",
+                    "value": "github.com/acme/api"
+                  }
+                },
+                "right": {
+                  "kind": "textCompare",
+                  "op": "equals",
+                  "left": {
+                    "kind": "reference",
+                    "key": "remote"
+                  },
+                  "right": {
+                    "kind": "textLiteral",
+                    "value": "github.com/acme/web"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      "tool": "Bash",
+      "input": "deploy prod",
+      "expect": "deny",
+      "context": {
+        "remote": "https://user:p/ss@github.com/acme/api"
+      }
+    },
+    {
+      "id": "evaluate-predicate.027",
+      "from": "recorded: a predicate over a remote it cannot interpret is unknown, so an ask for a matching remote applies",
+      "kind": "evaluate",
+      "policy": {
+        "defaultMode": "autonomous",
+        "rules": [
+          {
+            "tool": "Bash",
+            "pattern": "deploy:*",
+            "tier": "ask",
+            "when": {
+              "predicate": {
+                "kind": "or",
+                "left": {
+                  "kind": "textCompare",
+                  "op": "equals",
+                  "left": {
+                    "kind": "reference",
+                    "key": "remote"
+                  },
+                  "right": {
+                    "kind": "textLiteral",
+                    "value": "github.com/acme/api"
+                  }
+                },
+                "right": {
+                  "kind": "textCompare",
+                  "op": "equals",
+                  "left": {
+                    "kind": "reference",
+                    "key": "remote"
+                  },
+                  "right": {
+                    "kind": "textLiteral",
+                    "value": "github.com/acme/web"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      "tool": "Bash",
+      "input": "deploy prod",
+      "expect": "ask",
+      "context": {
+        "remote": "https://user:p/ss@github.com/acme/api"
+      }
     }
   ]
 }
