@@ -334,6 +334,654 @@
       "input": "git push origin",
       "expect": "ask",
       "context": {}
+    },
+    {
+      "id": "evaluate-env-remote.014",
+      "from": "recorded: when.remote matches a local path as the path it is",
+      "kind": "evaluate",
+      "policy": {
+        "defaultMode": "restricted",
+        "rules": [
+          {
+            "tool": "Bash",
+            "pattern": "git push:*",
+            "tier": "allow",
+            "when": {
+              "remote": "/srv/git/**"
+            }
+          }
+        ]
+      },
+      "tool": "Bash",
+      "input": "git push origin",
+      "expect": "allow",
+      "context": {
+        "remote": "/srv/git/a@b/repo.git"
+      }
+    },
+    {
+      "id": "evaluate-env-remote.015",
+      "from": "recorded: when.remote matches a local path as the path it is",
+      "kind": "evaluate",
+      "policy": {
+        "defaultMode": "restricted",
+        "rules": [
+          {
+            "tool": "Bash",
+            "pattern": "git push:*",
+            "tier": "allow",
+            "when": {
+              "remote": "/srv/git/**"
+            }
+          }
+        ]
+      },
+      "tool": "Bash",
+      "input": "git push origin",
+      "expect": "allow",
+      "context": {
+        "remote": "/srv/git/my#repo.git"
+      }
+    },
+    {
+      "id": "evaluate-env-remote.016",
+      "from": "recorded: when.remote matches a local path as the path it is",
+      "kind": "evaluate",
+      "policy": {
+        "defaultMode": "restricted",
+        "rules": [
+          {
+            "tool": "Bash",
+            "pattern": "git push:*",
+            "tier": "allow",
+            "when": {
+              "remote": "/srv/git/**"
+            }
+          }
+        ]
+      },
+      "tool": "Bash",
+      "input": "git push origin",
+      "expect": "allow",
+      "context": {
+        "remote": "/srv/git/my?repo.git"
+      }
+    },
+    {
+      "id": "evaluate-env-remote.017",
+      "from": "recorded: an allow for one owner does not apply to a remote whose path leaves that owner",
+      "kind": "evaluate",
+      "policy": {
+        "defaultMode": "restricted",
+        "rules": [
+          {
+            "tool": "Bash",
+            "pattern": "git push:*",
+            "tier": "allow",
+            "when": {
+              "remote": "github.com/exadev/*"
+            }
+          }
+        ]
+      },
+      "tool": "Bash",
+      "input": "git push origin",
+      "expect": "ask",
+      "context": {
+        "remote": "https://github.com/exadev/x%23/../../other/repo"
+      }
+    },
+    {
+      "id": "evaluate-env-remote.018",
+      "from": "recorded: an allow for one owner does not apply to a remote whose path leaves that owner",
+      "kind": "evaluate",
+      "policy": {
+        "defaultMode": "restricted",
+        "rules": [
+          {
+            "tool": "Bash",
+            "pattern": "git push:*",
+            "tier": "allow",
+            "when": {
+              "remote": "github.com/exadev/*"
+            }
+          }
+        ]
+      },
+      "tool": "Bash",
+      "input": "git push origin",
+      "expect": "ask",
+      "context": {
+        "remote": "https://github.com/exadev/x%3f/../../other/repo"
+      }
+    },
+    {
+      "id": "evaluate-env-remote.019",
+      "from": "recorded: an allow for one owner does not apply to a remote whose path leaves that owner",
+      "kind": "evaluate",
+      "policy": {
+        "defaultMode": "restricted",
+        "rules": [
+          {
+            "tool": "Bash",
+            "pattern": "git push:*",
+            "tier": "allow",
+            "when": {
+              "remote": "github.com/exadev/*"
+            }
+          }
+        ]
+      },
+      "tool": "Bash",
+      "input": "git push origin",
+      "expect": "ask",
+      "context": {
+        "remote": "https://github.com/exadev/x/../../other/repo"
+      }
+    },
+    {
+      "id": "evaluate-env-remote.020",
+      "from": "recorded: an allow for one owner does not apply to a remote whose path leaves that owner",
+      "kind": "evaluate",
+      "policy": {
+        "defaultMode": "restricted",
+        "rules": [
+          {
+            "tool": "Bash",
+            "pattern": "git push:*",
+            "tier": "allow",
+            "when": {
+              "remote": "github.com/exadev/*"
+            }
+          }
+        ]
+      },
+      "tool": "Bash",
+      "input": "git push origin",
+      "expect": "ask",
+      "context": {
+        "remote": "git@github.com:exadev/x%23/../../other/repo"
+      }
+    },
+    {
+      "id": "evaluate-env-remote.021",
+      "from": "recorded: an allow for one owner does not apply to a remote whose path leaves that owner",
+      "kind": "evaluate",
+      "policy": {
+        "defaultMode": "restricted",
+        "rules": [
+          {
+            "tool": "Bash",
+            "pattern": "git push:*",
+            "tier": "allow",
+            "when": {
+              "remote": "github.com/exadev/*"
+            }
+          }
+        ]
+      },
+      "tool": "Bash",
+      "input": "git push origin",
+      "expect": "ask",
+      "context": {
+        "remote": "https:///github.com/exadev/repo"
+      }
+    },
+    {
+      "id": "evaluate-env-remote.022",
+      "from": "recorded: an allow for one owner applies to a remote inside it",
+      "kind": "evaluate",
+      "policy": {
+        "defaultMode": "restricted",
+        "rules": [
+          {
+            "tool": "Bash",
+            "pattern": "git push:*",
+            "tier": "allow",
+            "when": {
+              "remote": "github.com/exadev/*"
+            }
+          }
+        ]
+      },
+      "tool": "Bash",
+      "input": "git push origin",
+      "expect": "allow",
+      "context": {
+        "remote": "https://github.com/exadev/repo"
+      }
+    },
+    {
+      "id": "evaluate-env-remote.023",
+      "from": "recorded: a remote it cannot interpret is unknown, so an allow for a matching remote does not apply",
+      "kind": "evaluate",
+      "policy": {
+        "defaultMode": "restricted",
+        "rules": [
+          {
+            "tool": "Bash",
+            "pattern": "git push:*",
+            "tier": "allow",
+            "when": {
+              "remote": "github.com/exadev/*"
+            }
+          }
+        ]
+      },
+      "tool": "Bash",
+      "input": "git push origin",
+      "expect": "ask",
+      "context": {
+        "remote": "https://user:p/ss@github.com/exadev/agent-perms"
+      }
+    },
+    {
+      "id": "evaluate-env-remote.024",
+      "from": "recorded: a remote it cannot interpret is unknown, so a deny for a matching remote applies",
+      "kind": "evaluate",
+      "policy": {
+        "defaultMode": "autonomous",
+        "rules": [
+          {
+            "tool": "Bash",
+            "pattern": "git push:*",
+            "tier": "deny",
+            "when": {
+              "remote": "github.com/exadev/*"
+            }
+          }
+        ]
+      },
+      "tool": "Bash",
+      "input": "git push origin",
+      "expect": "deny",
+      "context": {
+        "remote": "https://user:p/ss@github.com/exadev/agent-perms"
+      }
+    },
+    {
+      "id": "evaluate-env-remote.025",
+      "from": "recorded: a remote it cannot interpret is unknown, so an ask for a matching remote applies",
+      "kind": "evaluate",
+      "policy": {
+        "defaultMode": "autonomous",
+        "rules": [
+          {
+            "tool": "Bash",
+            "pattern": "git push:*",
+            "tier": "ask",
+            "when": {
+              "remote": "github.com/exadev/*"
+            }
+          }
+        ]
+      },
+      "tool": "Bash",
+      "input": "git push origin",
+      "expect": "ask",
+      "context": {
+        "remote": "https://user:p/ss@github.com/exadev/agent-perms"
+      }
+    },
+    {
+      "id": "evaluate-env-remote.026",
+      "from": "recorded: a remote it cannot interpret is unknown, so an allow for a matching remote does not apply",
+      "kind": "evaluate",
+      "policy": {
+        "defaultMode": "restricted",
+        "rules": [
+          {
+            "tool": "Bash",
+            "pattern": "git push:*",
+            "tier": "allow",
+            "when": {
+              "remote": "*"
+            }
+          }
+        ]
+      },
+      "tool": "Bash",
+      "input": "git push origin",
+      "expect": "ask",
+      "context": {
+        "remote": "https://user:p/ss@github.com/exadev/agent-perms"
+      }
+    },
+    {
+      "id": "evaluate-env-remote.027",
+      "from": "recorded: a remote it cannot interpret is unknown, so a deny for a matching remote applies",
+      "kind": "evaluate",
+      "policy": {
+        "defaultMode": "autonomous",
+        "rules": [
+          {
+            "tool": "Bash",
+            "pattern": "git push:*",
+            "tier": "deny",
+            "when": {
+              "remote": "*"
+            }
+          }
+        ]
+      },
+      "tool": "Bash",
+      "input": "git push origin",
+      "expect": "deny",
+      "context": {
+        "remote": "https://user:p/ss@github.com/exadev/agent-perms"
+      }
+    },
+    {
+      "id": "evaluate-env-remote.028",
+      "from": "recorded: a remote it cannot interpret is unknown, so an ask for a matching remote applies",
+      "kind": "evaluate",
+      "policy": {
+        "defaultMode": "autonomous",
+        "rules": [
+          {
+            "tool": "Bash",
+            "pattern": "git push:*",
+            "tier": "ask",
+            "when": {
+              "remote": "*"
+            }
+          }
+        ]
+      },
+      "tool": "Bash",
+      "input": "git push origin",
+      "expect": "ask",
+      "context": {
+        "remote": "https://user:p/ss@github.com/exadev/agent-perms"
+      }
+    },
+    {
+      "id": "evaluate-env-remote.029",
+      "from": "recorded: a remote it cannot interpret is unknown, so an allow for a matching remote does not apply",
+      "kind": "evaluate",
+      "policy": {
+        "defaultMode": "restricted",
+        "rules": [
+          {
+            "tool": "Bash",
+            "pattern": "git push:*",
+            "tier": "allow",
+            "when": {
+              "remote": "github.com/exadev/*"
+            }
+          }
+        ]
+      },
+      "tool": "Bash",
+      "input": "git push origin",
+      "expect": "ask",
+      "context": {
+        "remote": "https://github.com\\@SEKRET/exadev/agent-perms"
+      }
+    },
+    {
+      "id": "evaluate-env-remote.030",
+      "from": "recorded: a remote it cannot interpret is unknown, so a deny for a matching remote applies",
+      "kind": "evaluate",
+      "policy": {
+        "defaultMode": "autonomous",
+        "rules": [
+          {
+            "tool": "Bash",
+            "pattern": "git push:*",
+            "tier": "deny",
+            "when": {
+              "remote": "github.com/exadev/*"
+            }
+          }
+        ]
+      },
+      "tool": "Bash",
+      "input": "git push origin",
+      "expect": "deny",
+      "context": {
+        "remote": "https://github.com\\@SEKRET/exadev/agent-perms"
+      }
+    },
+    {
+      "id": "evaluate-env-remote.031",
+      "from": "recorded: a remote it cannot interpret is unknown, so an ask for a matching remote applies",
+      "kind": "evaluate",
+      "policy": {
+        "defaultMode": "autonomous",
+        "rules": [
+          {
+            "tool": "Bash",
+            "pattern": "git push:*",
+            "tier": "ask",
+            "when": {
+              "remote": "github.com/exadev/*"
+            }
+          }
+        ]
+      },
+      "tool": "Bash",
+      "input": "git push origin",
+      "expect": "ask",
+      "context": {
+        "remote": "https://github.com\\@SEKRET/exadev/agent-perms"
+      }
+    },
+    {
+      "id": "evaluate-env-remote.032",
+      "from": "recorded: a remote it cannot interpret is unknown, so an allow for a matching remote does not apply",
+      "kind": "evaluate",
+      "policy": {
+        "defaultMode": "restricted",
+        "rules": [
+          {
+            "tool": "Bash",
+            "pattern": "git push:*",
+            "tier": "allow",
+            "when": {
+              "remote": "*"
+            }
+          }
+        ]
+      },
+      "tool": "Bash",
+      "input": "git push origin",
+      "expect": "ask",
+      "context": {
+        "remote": "https://github.com\\@SEKRET/exadev/agent-perms"
+      }
+    },
+    {
+      "id": "evaluate-env-remote.033",
+      "from": "recorded: a remote it cannot interpret is unknown, so a deny for a matching remote applies",
+      "kind": "evaluate",
+      "policy": {
+        "defaultMode": "autonomous",
+        "rules": [
+          {
+            "tool": "Bash",
+            "pattern": "git push:*",
+            "tier": "deny",
+            "when": {
+              "remote": "*"
+            }
+          }
+        ]
+      },
+      "tool": "Bash",
+      "input": "git push origin",
+      "expect": "deny",
+      "context": {
+        "remote": "https://github.com\\@SEKRET/exadev/agent-perms"
+      }
+    },
+    {
+      "id": "evaluate-env-remote.034",
+      "from": "recorded: a remote it cannot interpret is unknown, so an ask for a matching remote applies",
+      "kind": "evaluate",
+      "policy": {
+        "defaultMode": "autonomous",
+        "rules": [
+          {
+            "tool": "Bash",
+            "pattern": "git push:*",
+            "tier": "ask",
+            "when": {
+              "remote": "*"
+            }
+          }
+        ]
+      },
+      "tool": "Bash",
+      "input": "git push origin",
+      "expect": "ask",
+      "context": {
+        "remote": "https://github.com\\@SEKRET/exadev/agent-perms"
+      }
+    },
+    {
+      "id": "evaluate-env-remote.035",
+      "from": "recorded: a remote it cannot interpret is unknown, so an allow for a matching remote does not apply",
+      "kind": "evaluate",
+      "policy": {
+        "defaultMode": "restricted",
+        "rules": [
+          {
+            "tool": "Bash",
+            "pattern": "git push:*",
+            "tier": "allow",
+            "when": {
+              "remote": "github.com/exadev/*"
+            }
+          }
+        ]
+      },
+      "tool": "Bash",
+      "input": "git push origin",
+      "expect": "ask",
+      "context": {
+        "remote": "https://user@"
+      }
+    },
+    {
+      "id": "evaluate-env-remote.036",
+      "from": "recorded: a remote it cannot interpret is unknown, so a deny for a matching remote applies",
+      "kind": "evaluate",
+      "policy": {
+        "defaultMode": "autonomous",
+        "rules": [
+          {
+            "tool": "Bash",
+            "pattern": "git push:*",
+            "tier": "deny",
+            "when": {
+              "remote": "github.com/exadev/*"
+            }
+          }
+        ]
+      },
+      "tool": "Bash",
+      "input": "git push origin",
+      "expect": "deny",
+      "context": {
+        "remote": "https://user@"
+      }
+    },
+    {
+      "id": "evaluate-env-remote.037",
+      "from": "recorded: a remote it cannot interpret is unknown, so an ask for a matching remote applies",
+      "kind": "evaluate",
+      "policy": {
+        "defaultMode": "autonomous",
+        "rules": [
+          {
+            "tool": "Bash",
+            "pattern": "git push:*",
+            "tier": "ask",
+            "when": {
+              "remote": "github.com/exadev/*"
+            }
+          }
+        ]
+      },
+      "tool": "Bash",
+      "input": "git push origin",
+      "expect": "ask",
+      "context": {
+        "remote": "https://user@"
+      }
+    },
+    {
+      "id": "evaluate-env-remote.038",
+      "from": "recorded: a remote it cannot interpret is unknown, so an allow for a matching remote does not apply",
+      "kind": "evaluate",
+      "policy": {
+        "defaultMode": "restricted",
+        "rules": [
+          {
+            "tool": "Bash",
+            "pattern": "git push:*",
+            "tier": "allow",
+            "when": {
+              "remote": "*"
+            }
+          }
+        ]
+      },
+      "tool": "Bash",
+      "input": "git push origin",
+      "expect": "ask",
+      "context": {
+        "remote": "https://user@"
+      }
+    },
+    {
+      "id": "evaluate-env-remote.039",
+      "from": "recorded: a remote it cannot interpret is unknown, so a deny for a matching remote applies",
+      "kind": "evaluate",
+      "policy": {
+        "defaultMode": "autonomous",
+        "rules": [
+          {
+            "tool": "Bash",
+            "pattern": "git push:*",
+            "tier": "deny",
+            "when": {
+              "remote": "*"
+            }
+          }
+        ]
+      },
+      "tool": "Bash",
+      "input": "git push origin",
+      "expect": "deny",
+      "context": {
+        "remote": "https://user@"
+      }
+    },
+    {
+      "id": "evaluate-env-remote.040",
+      "from": "recorded: a remote it cannot interpret is unknown, so an ask for a matching remote applies",
+      "kind": "evaluate",
+      "policy": {
+        "defaultMode": "autonomous",
+        "rules": [
+          {
+            "tool": "Bash",
+            "pattern": "git push:*",
+            "tier": "ask",
+            "when": {
+              "remote": "*"
+            }
+          }
+        ]
+      },
+      "tool": "Bash",
+      "input": "git push origin",
+      "expect": "ask",
+      "context": {
+        "remote": "https://user@"
+      }
     }
   ]
 }
